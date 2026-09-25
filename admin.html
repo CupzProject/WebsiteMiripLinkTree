@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin — My Links</title>
+<link rel="stylesheet" href="/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<main class="auth" id="loginView">
+  <section class="auth-card">
+    <h1>Admin</h1>
+    <p>Masuk untuk mengelola halaman link.</p>
+    <form id="loginForm">
+      <label>Email<input id="loginEmail" type="email" required autocomplete="email"></label>
+      <label>Password<input id="loginPassword" type="password" required autocomplete="current-password"></label>
+      <button type="submit" id="loginButton">Masuk</button>
+      <div id="loginMsg" class="notice" style="display:none"></div>
+    </form>
+  </section>
+</main>
+
+<div class="admin-wrap" id="adminView" style="display:none">
+<header class="admin-head"><div><b>My Links</b><span>Admin Panel</span></div><div class="head-actions"><a href="/" target="_blank">Lihat Profil ↗</a><button type="button" id="logout">Keluar</button></div></header>
+<div id="status" class="notice">Memuat panel...</div>
+<div class="admin-grid">
+<section class="panel"><h2>Profil</h2><label>Username publik<input id="username" placeholder="cupz"></label>
+<label>Nama<input id="aName"></label><label>Bio<textarea id="aBio" rows="3"></textarea></label>
+<label>Foto profil URL<input id="aAvatar" placeholder="https://..."></label><label>Warna tombol<input id="aButton" type="color"></label>
+<label>Background<input id="aBg" type="color"></label><button type="button" id="saveProfile">Simpan Profil</button></section>
+<section class="panel"><div class="row-title"><h2>Link</h2><button type="button" id="addLink" class="small">+ Tambah</button></div><div id="linkEditor"></div></section>
+<section class="panel"><h2>Sosial</h2><label>Instagram<input id="instagram"></label><label>TikTok<input id="tiktok"></label><label>YouTube<input id="youtube"></label><label>Telegram<input id="telegram"></label><button type="button" id="saveSocial">Simpan Sosial</button></section>
+<section class="panel"><h2>Keamanan</h2><p class="muted">Akses admin dilindungi Supabase Auth dan Row Level Security (RLS).</p><button type="button" id="reset" class="danger">Hapus semua link</button></section>
+</div></div>
+<script src="/api/config.js"></script>
+<script src="/admin.js"></script>
+</body></html>
